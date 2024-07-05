@@ -1,4 +1,4 @@
-import { Result } from '../../Types/apiTypes'
+import { Result } from "../../Types/apiTypes"
 
 export const picturesLoading = () => ({ type: 'pictures_loading' })
 export const currentPageChange = (value: number) => ({ type: 'currentPage_change', payload: value })

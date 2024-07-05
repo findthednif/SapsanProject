@@ -2,6 +2,7 @@ import React from 'react'
 import './SearchLine.scss'
 import { Input, Button } from 'antd'
 import { SearchOutlined, CloseOutlined } from '@ant-design/icons'
+
 import { useTsSelector, useTsDispatch } from '../../Hooks/storeHooks'
 import {
   picturesLoading,
