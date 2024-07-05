@@ -1,6 +1,5 @@
 .picturesList {
-  padding-top: 82px;
-  padding-left: 15px;
+  padding-left: 20px;
   display: flex;
   gap: 5px;
   flex-wrap: wrap;
@@ -13,6 +12,7 @@
   line-height: 1.5;
 }
 .noResultsMessage {
+  display: flex;
   color: #787878;
 }
 @media (max-width: 500px) {

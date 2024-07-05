@@ -1,10 +1,10 @@
 .search {
+  padding: 20px;
   display: flex;
   gap: 10px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  justify-content: center;
+  min-height: 100vh;
+  align-items: center;
   min-width: 90%;
   .searchInput {
     background-color: #eeeeee;
@@ -15,17 +15,13 @@
     max-width: 420px;
     height: 48px;
   }
-
   .searchButton {
     background-color: #eb0c0c;
     width: 82px;
     color: white;
     border: none;
     border-radius: 12px;
-    transition:
-      transform 0.1s ease,
-      background-color 0.3s ease;
-
+    min-height: 48px;
     &:active {
       transform: translateY(1px);
     }
@@ -36,9 +32,9 @@
   }
 }
 .search--resetPosition {
-  left: 20px;
-  top: 20px;
-  transform: translate(0, 0);
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-height: auto;
 }
 @media (min-width: 500px) {
   .search {

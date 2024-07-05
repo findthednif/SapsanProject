@@ -19,22 +19,24 @@ export default function SearchLine() {
   const dispatch = useTsDispatch()
   const { newPicturesRequested, inputValue } = useTsSelector((state) => state.picturesReducer)
   const picturesFetch = async () => {
-    dispatch(newPicturesRequest())
-    dispatch(picturesLoading())
-    dispatch(hasMorePictures())
-    dispatch(currentPageChange(1))
-    try {
-      const responce = await getPictures(inputValue, 1)
-      if (responce.length === 0) {
-        dispatch(noSearchResults())
-      } else {
-        dispatch(newPicturesFetched(responce))
-      }
-    } catch (error) {
-      if (error instanceof Error) {
-        dispatch(errorHandler(error.message))
-      } else {
-        dispatch(errorHandler('Unknown error'))
+    if (inputValue) {
+      dispatch(newPicturesRequest())
+      dispatch(picturesLoading())
+      dispatch(hasMorePictures())
+      dispatch(currentPageChange(1))
+      try {
+        const responce = await getPictures(inputValue, 1)
+        if (responce.length === 0) {
+          dispatch(noSearchResults())
+        } else {
+          dispatch(newPicturesFetched(responce))
+        }
+      } catch (error) {
+        if (error instanceof Error) {
+          dispatch(errorHandler(error.message))
+        } else {
+          dispatch(errorHandler('Unknown error'))
+        }
       }
     }
   }
@@ -42,7 +44,9 @@ export default function SearchLine() {
     if (event.key === 'Escape') {
       dispatch(inputValueChange(''))
     } else if (event.key === 'Enter') {
-      picturesFetch()
+      if (inputValue) {
+        picturesFetch()
+      }
     }
   }
   return (

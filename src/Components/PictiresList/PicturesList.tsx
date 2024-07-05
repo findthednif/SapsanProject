@@ -75,13 +75,14 @@ export default function PicturesList() {
 
   return (
     <>
+    {noResults && <div className="noResultsMessage">К сожалению, поиск не дал результатов</div>}
       <div className="picturesList">
         {loading && currentPage === 1 ? loadingCards() : picturesList()}
         {loading && currentPage !== 1 && loadingCards()}
         {newPicturesRequested !== 0 && !noResults && !error && <span ref={containerRef}></span>}
       </div>
       {error && <div className="errorMessage">An error had occurated. Errors message: {error}</div>}
-      {noResults && <div className="noResultsMessage">К сожалению, поиск не дал результатов</div>}
+      
     </>
   )
 }
